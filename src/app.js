@@ -50,7 +50,7 @@ class DuckyBot extends Client {
 
   async start() {
     try {
-      startupLog('Starting TitanBot...');
+      startupLog('Starting DuckyBot...');
       await new Promise(resolve => setTimeout(resolve, 1000));
       
       startupLog('Initializing database...');
@@ -204,7 +204,7 @@ class DuckyBot extends Client {
 
     app.get('/', (req, res) => {
       res.status(200).json({ 
-        message: 'TitanBot System Online',
+        message: 'DuckyBot System Online',
         version: pkg.version,
         timestamp: new Date().toISOString()
       });
@@ -388,7 +388,7 @@ class DuckyBot extends Client {
 }
 
 try {
-  const bot = new TitanBot();
+  const bot = new DuckyBot();
   
   const setupShutdown = () => {
     process.on('SIGTERM', () => bot.shutdown('SIGTERM'));
@@ -428,4 +428,4 @@ try {
   process.exit(1);
 }
 
-export default TitanBot;
+export default DuckyBot;
